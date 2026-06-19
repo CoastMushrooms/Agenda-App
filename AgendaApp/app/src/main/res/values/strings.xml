@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Agenda App</string>
+    <string name="app_title">My Agenda</string>
+
+    <string name="take_photo">Take Photo</string>
+    <string name="upcoming_tasks">Upcoming Tasks</string>
+    <string name="no_upcoming_tasks">No tasks due in the next 7 days</string>
+    <string name="show_priority">Show Priority</string>
+    <string name="hide_priority">Hide Priority</string>
+    <string name="add_manually">Add Manually</string>
+
+    <string name="capture_assignment">Capture Assignment</string>
+    <string name="capture_instruction">Take a photo of your homework board or assignment</string>
+    <string name="retake_photo">Retake</string>
+    <string name="proceed">Proceed</string>
+
+    <string name="assignment_details">Assignment Details</string>
+    <string name="captured_image">Captured Image</string>
+    <string name="assignment_title">Assignment Title</string>
+    <string name="title_hint">Enter assignment title</string>
+    <string name="subject">Subject</string>
+    <string name="subject_hint">e.g., Mathematics, English</string>
+    <string name="description">Description</string>
+    <string name="description_hint">Enter any additional details</string>
+    <string name="due_date">Due Date</string>
+    <string name="change_date">Change Date</string>
+    <string name="cancel">Cancel</string>
+    <string name="save_assignment">Save Assignment</string>
+    <string name="delete_assignment">Delete Assignment</string>
+
+    <string name="calendar_view">Calendar View</string>
+
+    <string name="mark_as_done">Mark as Done</string>
+    <string name="completed_status">Completed</string>
+    <string name="hours_remaining">%d hours remaining</string>
+    <string name="deleting_soon">Deleting soon...</string>
+    <string name="task_completed">Task marked as complete</string>
+    <string name="task_completed_countdown">Completed - %d hours left</string></resources>

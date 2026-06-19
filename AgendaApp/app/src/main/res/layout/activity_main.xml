@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/app_background"
+    android:fitsSystemWindows="true">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/padding_medium"
+        android:paddingVertical="10dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_title"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary" />
+
+        <ImageButton
+            android:id="@+id/cameraButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@android:drawable/ic_menu_camera"
+            android:contentDescription="@string/take_photo"
+            android:scaleType="centerInside"
+            android:background="@drawable/button_background"
+            android:tint="@color/white" />
+    </LinearLayout>
+
+    <!-- Scrollable body so panels + calendar don't overflow -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ======= UPCOMING TASKS SECTION ======= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/padding_medium"
+                android:paddingVertical="6dp"
+                android:gravity="center_vertical"
+                android:background="@color/priority_panel_background">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Upcoming"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:id="@+id/toggleUpcomingBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hide"
+                    android:textSize="12sp"
+                    android:textColor="@color/primary_color"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:background="?attr/selectableItemBackground" />
+
+                <TextView
+                    android:id="@+id/expandUpcomingBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⛶"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_secondary"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:background="?attr/selectableItemBackground" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/upcomingPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/priority_panel_background"
+                android:paddingHorizontal="@dimen/padding_medium"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:id="@+id/noUpcomingText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_upcoming_tasks"
+                    android:textColor="@color/text_secondary"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    android:textSize="13sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/upcomingRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+
+            <!-- ======= PRIORITY SECTION ======= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/padding_medium"
+                android:paddingVertical="6dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="2dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Priority"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:id="@+id/togglePriorityBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hide"
+                    android:textSize="12sp"
+                    android:textColor="@color/primary_color"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:background="?attr/selectableItemBackground" />
+
+                <TextView
+                    android:id="@+id/expandPriorityBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⛶"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_secondary"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:background="?attr/selectableItemBackground" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/priorityPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:paddingHorizontal="@dimen/padding_medium"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:id="@+id/noPriorityText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No priority tasks"
+                    android:textColor="@color/text_secondary"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    android:textSize="13sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/priorityRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+
+            <!-- ======= CALENDAR SECTION ======= -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/padding_medium"
+                android:paddingTop="6dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="2dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/prevMonthBtn"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="‹"
+                    android:textSize="20sp"
+                    android:padding="0dp"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <TextView
+                    android:id="@+id/currentMonthText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="May 2024"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/text_primary" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/nextMonthBtn"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="›"
+                    android:textSize="20sp"
+                    android:padding="0dp"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <TextView
+                    android:id="@+id/expandCalendarBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⛶"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_secondary"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?attr/selectableItemBackground" />
+            </LinearLayout>
+
+            <!-- Day-of-week headers -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="@dimen/padding_small"
+                android:paddingTop="4dp">
+
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sun" android:gravity="center" android:textSize="11sp" android:textStyle="bold" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mon" android:gravity="center" android:textSize="11sp" android:textStyle="bold" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tue" android:gravity="center" android:textSize="11sp" android:textStyle="bold" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Wed" android:gravity="center" android:textSize="11sp" android:textStyle="bold" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Thu" android:gravity="center" android:textSize="11sp" android:textStyle="bold" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fri" android:gravity="center" android:textSize="11sp" android:textStyle="bold" android:textColor="@color/text_secondary" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sat" android:gravity="center" android:textSize="11sp" android:textStyle="bold" android:textColor="@color/text_secondary" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/calendarRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="7" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/padding_medium"
+        android:paddingTop="8dp"
+        android:paddingBottom="28dp"
+        android:gravity="center"
+        android:background="@color/app_background">
+
+        <Button
+            android:id="@+id/addManualBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/add_manually"
+            style="@style/Widget.AppCompat.Button.Colored" />
+    </LinearLayout>
+
+</LinearLayout>

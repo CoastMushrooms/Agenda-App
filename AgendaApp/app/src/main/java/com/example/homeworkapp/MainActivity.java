@@ -33,17 +33,14 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView calendarRecyclerView;
     private CalendarAdapter calendarAdapter;
 
-    // Upcoming section
     private LinearLayout upcomingPanel;
     private TextView toggleUpcomingBtn, expandUpcomingBtn, noUpcomingText;
     private RecyclerView upcomingRecyclerView;
 
-    // Priority section
     private LinearLayout priorityPanel;
     private TextView togglePriorityBtn, expandPriorityBtn, noPriorityText;
     private RecyclerView priorityRecyclerView;
 
-    // Calendar
     private AppCompatButton prevMonthBtn, nextMonthBtn;
     private TextView currentMonthText, expandCalendarBtn;
 
@@ -120,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
         prevMonthBtn.setOnClickListener(v -> { currentMonth = currentMonth.minusMonths(1); updateCalendarDisplay(); });
         nextMonthBtn.setOnClickListener(v -> { currentMonth = currentMonth.plusMonths(1); updateCalendarDisplay(); });
 
-        // Toggle upcoming
         toggleUpcomingBtn.setOnClickListener(v -> {
             if (upcomingPanel.getVisibility() == View.VISIBLE) {
                 upcomingPanel.setVisibility(View.GONE);
@@ -131,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Toggle priority
         togglePriorityBtn.setOnClickListener(v -> {
             if (priorityPanel.getVisibility() == View.VISIBLE) {
                 priorityPanel.setVisibility(View.GONE);
@@ -142,7 +137,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Expand buttons
         expandUpcomingBtn.setOnClickListener(v -> {
             Intent i = new Intent(this, FullScreenListActivity.class);
             i.putExtra("mode", "upcoming");
@@ -222,7 +216,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /** Tasks due within the next 7 days, sorted by due date */
     private List<Assignment> filterUpcoming() {
         LocalDate today = LocalDate.now();
         LocalDate weekLater = today.plusDays(7);
@@ -242,7 +235,6 @@ public class MainActivity extends AppCompatActivity {
         return list;
     }
 
-    /** Tasks with High/Medium/Low priority, sorted by priority then due date */
     private List<Assignment> filterPriority() {
         List<Assignment> list = new ArrayList<>();
         for (Assignment a : allAssignments) {

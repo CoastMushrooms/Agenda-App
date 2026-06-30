@@ -23,7 +23,7 @@ import java.util.List;
 public class FullScreenListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TextView titleText, emptyText;
-    private String mode; // "upcoming" or "priority"
+    private String mode;
     private DatabaseReference databaseReference;
 
     @Override

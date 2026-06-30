@@ -60,7 +60,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
 
         public void bind(CalendarDay calendarDay) {
             if (calendarDay.isEmpty()) {
-                // Blank padding cell
                 dayNumberText.setText("");
                 assignmentsContainer.removeAllViews();
                 dayCell.setBackgroundColor(context.getResources().getColor(R.color.app_background));

@@ -34,7 +34,6 @@ public class AssignmentCleanupWorker extends Worker {
 
                         if (assignment != null && assignment.isCompleted()) {
                             if (assignment.shouldAutoDelete()) {
-                                // Delete the assignment
                                 databaseReference.child(assignmentSnapshot.getKey()).removeValue()
                                         .addOnSuccessListener(aVoid -> {
                                             Log.d(TAG, "Auto-deleted assignment: " + assignment.getTitle());

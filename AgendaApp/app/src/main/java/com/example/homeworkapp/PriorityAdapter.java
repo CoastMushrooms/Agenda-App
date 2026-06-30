@@ -61,7 +61,6 @@ public class PriorityAdapter extends RecyclerView.Adapter<PriorityAdapter.Priori
             priorityTaskTitle.setText(assignment.getTitle());
             priorityTaskSubject.setText(assignment.getSubject());
 
-            // Show priority label
             if (priorityLabel != null) {
                 if (assignment.hasPriority()) {
                     priorityLabel.setVisibility(View.VISIBLE);
@@ -78,7 +77,6 @@ public class PriorityAdapter extends RecyclerView.Adapter<PriorityAdapter.Priori
                 }
             }
 
-            // Tap row to open detail dialog
             itemView.setOnClickListener(v -> {
                 if (context instanceof AppCompatActivity) {
                     FragmentManager fm = ((AppCompatActivity) context).getSupportFragmentManager();

@@ -21,15 +21,11 @@ public class CalendarHelper {
         LocalDate firstDay = yearMonth.atDay(1);
         int daysInMonth = yearMonth.lengthOfMonth();
 
-        // Sunday=0 offset for the first day
-        int startOffset = firstDay.getDayOfWeek().getValue() % 7; // Monday=1..Sunday=7 → Sun=0,Mon=1..Sat=6
-
-        // Add blank cells for days before the 1st
+        int startOffset = firstDay.getDayOfWeek().getValue() % 7; 
         for (int i = 0; i < startOffset; i++) {
             calendarDays.add(CalendarDay.empty());
         }
 
-        // Add actual days of the month
         for (int day = 1; day <= daysInMonth; day++) {
             LocalDate date = yearMonth.atDay(day);
             CalendarDay calendarDay = new CalendarDay(date, true);
@@ -38,8 +34,6 @@ public class CalendarHelper {
             }
             calendarDays.add(calendarDay);
         }
-
-        // No trailing blanks needed - grid just ends after last day
 
         return calendarDays;
     }

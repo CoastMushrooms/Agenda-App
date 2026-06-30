@@ -8,7 +8,7 @@ public class CalendarDay {
     private LocalDate date;
     private List<Assignment> assignments;
     private boolean isCurrentMonth;
-    private boolean isEmpty; // blank padding cell
+    private boolean isEmpty;
 
     public CalendarDay(LocalDate date, boolean isCurrentMonth) {
         this.date = date;
@@ -17,7 +17,6 @@ public class CalendarDay {
         this.isEmpty = false;
     }
 
-    /** Create a blank placeholder cell */
     public static CalendarDay empty() {
         CalendarDay d = new CalendarDay(LocalDate.now(), false);
         d.isEmpty = true;

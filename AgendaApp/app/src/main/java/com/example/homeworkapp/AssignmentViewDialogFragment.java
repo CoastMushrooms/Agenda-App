@@ -73,7 +73,6 @@ public class AssignmentViewDialogFragment extends DialogFragment {
         ((TextView) view.findViewById(R.id.dialogSubject)).setText(args.getString(ARG_SUBJECT, ""));
         ((TextView) view.findViewById(R.id.dialogDescription)).setText(args.getString(ARG_DESCRIPTION, ""));
 
-        // Priority
         TextView priorityText = view.findViewById(R.id.dialogPriority);
         String priority = args.getString(ARG_PRIORITY, "None");
         if (priority != null && !priority.isEmpty() && !"None".equals(priority)) {
@@ -90,7 +89,6 @@ public class AssignmentViewDialogFragment extends DialogFragment {
             priorityText.setVisibility(View.GONE);
         }
 
-        // Due date
         String rawDate = args.getString(ARG_DUE_DATE, "");
         try {
             java.time.LocalDate date = java.time.LocalDate.parse(rawDate);
@@ -100,7 +98,6 @@ public class AssignmentViewDialogFragment extends DialogFragment {
             ((TextView) view.findViewById(R.id.dialogDueDate)).setText("Due: " + rawDate);
         }
 
-        // Completion status
         TextView statusText = view.findViewById(R.id.dialogStatus);
         if (completed) {
             statusText.setVisibility(View.VISIBLE);
@@ -109,7 +106,6 @@ public class AssignmentViewDialogFragment extends DialogFragment {
             statusText.setVisibility(View.GONE);
         }
 
-        // Image
         ImageView imageView = view.findViewById(R.id.dialogImage);
         LinearLayout imageContainer = view.findViewById(R.id.dialogImageContainer);
         String base64 = args.getString(ARG_IMAGE_BASE64, null);
@@ -124,7 +120,6 @@ public class AssignmentViewDialogFragment extends DialogFragment {
             } catch (Exception e) { imageContainer.setVisibility(View.GONE); }
         } else { imageContainer.setVisibility(View.GONE); }
 
-        // Action buttons
         TextView markDoneBtn = view.findViewById(R.id.dialogMarkDoneBtn);
         TextView deleteBtn = view.findViewById(R.id.dialogDeleteBtn);
 

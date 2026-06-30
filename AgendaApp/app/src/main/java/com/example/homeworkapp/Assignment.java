@@ -14,7 +14,7 @@ public class Assignment {
     private String imageBase64;
     private boolean completed;
     private long completedAt;
-    private String priority; // "High", "Medium", "Low", or null/empty = none
+    private String priority;
 
     public Assignment() {}
 
